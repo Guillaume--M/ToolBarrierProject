@@ -1,11 +1,7 @@
 package vehicule;
 
-public class Voiture {
+public class Voiture extends Vehicule{
 
-	public static void main(String[] args) {
-
-		// Test commit 2
-
-	}
+	
 
 }
