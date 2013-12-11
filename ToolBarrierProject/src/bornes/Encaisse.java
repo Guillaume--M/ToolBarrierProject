@@ -1,10 +1,11 @@
 package bornes;
+
 /**
- * 
- * @author slavnic
- * @TODO
- *  - Gere les voiture pas assez de tune
+ *
+ * @author slavnic/gazquez
+ * @TODO - Gere les voiture pas assez de tune
  */
 public interface Encaisse {
-	public boolean encaisser();
+
+    public boolean encaisser();
 }

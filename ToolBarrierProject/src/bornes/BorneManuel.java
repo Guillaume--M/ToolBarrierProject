@@ -1,21 +1,29 @@
 package bornes;
+
 /**
- * 
+ *
  * @author slavnic/gazquez
- * @TODO 
- *  
+ * @TODO - gérer les véhicule spéciaux ac le pass
+ *
  */
-public final class BorneManuel extends Borne{
-	
-	public BorneManuel(){}
-	
-	// Alarme boutonAlarme;
-	// push count systeme de gestion
-	
-	@Override
-	public boolean encaisser() {
-		//avant d'encaisser il faut test si ils paie avec le bon type de paiement
-		return false; //vehicule.monnaie >= tarif)
-			
-	}
+public final class BorneManuel extends Borne {
+
+    
+    public BorneManuel(int tarif) {
+      super(tarif);
+      //set type de paiement des bornes
+      this.addBorne();        
+    }
+
+    // Alarme boutonAlarme;
+    // push count systeme de gestion
+    
+    @Override
+    public boolean encaisser() {
+        //avant d'encaisser il faut test si ils paient avec le bon type de paiement
+        //if paiement ok >> _statusBarrier = true;
+        //>> _statusBandeau = true;
+        return false; //vehicule.monnaie >= tarif)
+
+    }
 }
