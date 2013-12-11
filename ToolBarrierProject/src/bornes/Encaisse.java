@@ -6,5 +6,5 @@ package bornes;
  *  - Gere les voiture pas assez de tune
  */
 public interface Encaisse {
-	public void encaisser();
+	public boolean encaisser();
 }

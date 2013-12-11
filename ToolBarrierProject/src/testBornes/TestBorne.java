@@ -1,4 +1,4 @@
-package testBonres;
+package testBornes;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -25,6 +25,12 @@ public class TestBorne extends Borne{
 		borne.setBarrier(true);
 		if(borne.getBarrier() != state)
 			fail("state is true");
+	}
+
+	@Override
+	public boolean encaisser() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
