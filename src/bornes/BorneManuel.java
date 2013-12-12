@@ -8,6 +8,7 @@ package bornes;
  */
 public final class BorneManuel extends Borne {
 
+    //Superviseur.setAlarme(Alarme.monnaie);
     
     public BorneManuel(int tarif) {
       super(tarif);

@@ -1,15 +1,17 @@
 package bornes;
+
 // import enum.payement
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import paiement.Paiement;
 
 /**
  * @author slavnic/gazquez
  * @TODO - Auto alarme timer - Rajouter les champs des types de paiements des
  * bornes
  */
-public abstract class Borne extends Thread implements Encaisse {
+public abstract class Borne extends Thread implements Paiement {
 
     private ArrayList<Borne> _tabBornes = new ArrayList<Borne>();
      
@@ -19,10 +21,11 @@ public abstract class Borne extends Thread implements Encaisse {
     protected boolean _statusBandeau;
     // pour savoir si la voiture à passée la barrière
     protected boolean _statusBoucleAmont;
-
+    
     protected int _tarif;
 
     //enum des type de paiement des bornes
+    //enum des type d'alarme
     
     public Borne(int tarif){
         
@@ -82,7 +85,7 @@ public abstract class Borne extends Thread implements Encaisse {
     public void delBorne(int numBorne){
         _tabBornes.remove(numBorne);
     }
-    // voir si on thread chaque bornes (peut_etre inutil si les bornes sont threadés
+    // voir si on thread chaque bornes (peut_etre inutil si les bornes sont threadés)
 
     public Borne getFreeBorne() {
 

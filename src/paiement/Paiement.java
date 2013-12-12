@@ -17,7 +17,7 @@ public interface Paiement {
          *
          * @return String quel type de paiement et de combien
          */
-        public String encaisser();
+        public boolean encaisser();
         
         
 }
