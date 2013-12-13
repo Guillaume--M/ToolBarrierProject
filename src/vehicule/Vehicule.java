@@ -3,7 +3,7 @@ package vehicule;
 import comBarriereVehicule.TypeDePayement;
 import comBarriereVehicule.Categorie;
 
-public abstract class Vehicule {
+abstract public class Vehicule {
 	protected Payement payement;
 	protected Categorie categorie;
 
