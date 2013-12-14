@@ -1,22 +1,21 @@
 package vehicule;
 
-import comBarriereVehicule.TypeDePayement;
 import comBarriereVehicule.Categorie;
 
-abstract public class Vehicule {
-	protected Payement payement;
-	protected Categorie categorie;
+public abstract class Vehicule {
+	protected Payement _payement;
+	protected Categorie _categorie;
 
-	Vehicule(Payement p) {
-		this.payement = p;
+	public Vehicule(Payement p) {
+		_payement = p;
 	}
 
-	Categorie getCategorie() {
-		return this.categorie;
+	public Categorie getCategorie() {
+		return _categorie;
 	}
 
-	TypeDePayement getTypedePayement() {
-		return this.payement.getTypeDePayement();
+	public Payement getTypedePayement() {
+		return _payement;
 	}
 
 }
