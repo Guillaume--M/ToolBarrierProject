@@ -14,6 +14,11 @@
  */
 package prototype;
 
+import javax.swing.SwingUtilities;
+
+import graphique.FenetrePrincipale;
+import graphique.Fenetre_Reglages;
+
 /**
  * @author Meunier Guillaume 
  * 
@@ -26,33 +31,13 @@ public class Main
 	 */
 	public static void main(String[] args)
 	{
-		int nombreDeBornes    = 4   ;
-		int nMaxAvantBouchon  = 10  ;
-		int tempoFluxVehicule = 1000 ;
-		int tempoBorne        = 7000 ;
-
-		FileAttente buffer = new FileAttente(nMaxAvantBouchon);
-		ProducteurVehicule fluxVehicule = new ProducteurVehicule(tempoFluxVehicule, buffer);
-		
-		Borne[] users = new Borne[nombreDeBornes];
-		for (int i = 0; i < nombreDeBornes; i++)
-		{
-			users[i] = new Borne(tempoBorne, buffer, "Borne " + i);
-		}
-		
-		fluxVehicule.start();
-		
-		for (int i = 0; i < nombreDeBornes; i++)
-		{
-			users[i].start();
-			try 
-			{
-				Thread.sleep(1000);
-			} catch (InterruptedException e) 
-			{
-				e.printStackTrace();
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				Fenetre_Reglages inst = new Fenetre_Reglages();
+				inst.setLocationRelativeTo(null);
+				inst.setVisible(true);
 			}
-		}
+		});
 	}
 
 }
