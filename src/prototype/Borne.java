@@ -24,10 +24,9 @@ public class Borne extends Thread
 	int					tempo;
 	FileAttente	buffer;
 
-	public Borne(int tempo, FileAttente buffer, String name)
+	public Borne(FileAttente buffer, String name)
 	{
 		this.name = name;
-		this.tempo = tempo;
 		this.buffer = buffer;
 	}
 

@@ -4,21 +4,23 @@ public class Principale {
 
 	public Principale(int nombreDeBornes, int nMaxAvantBouchon, int tempoFluxVehicule) {
 		
-		//config init
-		/*
-		int nombreDeBornes    = 4   ;
-		int nMaxAvantBouchon  = 10  ;
-		int tempoFluxVehicule = 1000 ;*/
-		int tempoBorne        = 7000 ;
 		
 
 		FileAttente buffer = new FileAttente(nMaxAvantBouchon);
 		ProducteurVehicule fluxVehicule = new ProducteurVehicule(tempoFluxVehicule, buffer);
 		
 		Borne[] users = new Borne[nombreDeBornes];
-		for (int i = 0; i < nombreDeBornes; i++)
-		{
-			users[i] = new Borne(tempoBorne, buffer, "Borne " + i);
+		for (int i = 0; i < nombreDeBornes / 3; i++) {
+			users[i] = new BorneAuto(buffer, "Borne Auto " + i);
+
+		}
+
+		for (int i = nombreDeBornes / 3; i < 2 * nombreDeBornes / 3; i++) {
+			users[i] = new BorneTele(buffer, "Borne Tele " + i);
+		}
+
+		for (int i = 2 * nombreDeBornes / 3; i < nombreDeBornes; i++) {
+			users[i] = new BorneManuel(buffer, "Borne Manuel " + i);
 		}
 		
 		fluxVehicule.start();
