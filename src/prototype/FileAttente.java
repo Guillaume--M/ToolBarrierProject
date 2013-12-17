@@ -20,10 +20,10 @@ package prototype;
  */
 public class FileAttente
 {
-	int		size, currentPut, currentGet;
-	boolean	full;
-	boolean	empty;
-	Object	tab[];
+	int		 size, currentPut, currentGet;
+	boolean	 full;
+	boolean empty;
+	Object	 tab[];
 
 	public FileAttente(int size)
 	{
@@ -39,7 +39,7 @@ public class FileAttente
 	{
 		if (full)
 		{
-			System.out.println("Trop de véhicules en attente : Bouchon");
+			System.out.println("Trop de vehicules en attente : Bouchon");
 			return;
 		}
 		tab[currentPut] = o;

@@ -45,7 +45,7 @@ public class ProducteurVehicule extends Thread
 			}
 			else
 			{
-				System.err.println("BOUCHON! Trop de véhicules en attente !");
+				System.err.println("BOUCHON! Trop de vehicules en attente !");
 				try 
 				{
 					Thread.sleep(1000);

@@ -28,7 +28,7 @@ public class Main
 	{
 		int nombreDeBornes    = 4   ;
 		int nMaxAvantBouchon  = 10  ;
-		int tempoFluxVehicule = 500 ;
+		int tempoFluxVehicule = 1000 ;
 		int tempoBorne        = 7000 ;
 
 		FileAttente buffer = new FileAttente(nMaxAvantBouchon);

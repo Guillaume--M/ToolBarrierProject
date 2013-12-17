@@ -43,16 +43,15 @@ public class Borne extends Thread
 			}
 			if (null != vehicule)
 			{
-				System.out.println(name + ": traite le vehicule n°" + vehicule);
+				System.out.println(name + ": traite le vehicule n" + vehicule);
 				try 
 				{
 					Thread.sleep(tempo);
 				} catch (InterruptedException e) 
 				{
-			
 					e.printStackTrace();
 				}
-				System.out.println("Vehicule n°" + vehicule + " : Payment accepté.");
+				System.out.println("Vehicule n " + vehicule + " : Paiement accepte.");
 				try 
 				{
 					Thread.sleep(2000);
