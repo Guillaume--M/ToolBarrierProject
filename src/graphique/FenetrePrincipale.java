@@ -14,20 +14,20 @@ import javax.swing.JTextArea;
 
 public class FenetrePrincipale extends JFrame {
 	
+	private InterfaceInfo info = new InterfaceInfo();
+	private InterfaceAlarme alarme = new InterfaceAlarme();
+	private InterfacePeage peage = new InterfacePeage(5);
+	private InterfaceRapport rapport = new InterfaceRapport();
+	private InterfaceReglage reglage = new InterfaceReglage(peage);
+	
+	
 	public FenetrePrincipale(int longueur, int hauteur) {
 
 		
-		setTitle("Simulateur de barriï¿½re de pï¿½age");
+		setTitle("Simulateur de barrière de péage");
 		setSize(longueur, hauteur);
 		setLocationRelativeTo(null);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	    
-	    InterfaceReglage reglage = new InterfaceReglage();
-	    InterfaceInfo info = new InterfaceInfo();
-	    InterfaceAlarme alarme = new InterfaceAlarme();
-	    InterfacePeage peage = new InterfacePeage();
-	    InterfaceRapport rapport = new InterfaceRapport();
 
 	    
 	    JSplitPane splitAR = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, alarme, reglage);

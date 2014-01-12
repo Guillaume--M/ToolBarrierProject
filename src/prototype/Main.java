@@ -8,21 +8,15 @@
  * or revised without written permission of the authors.
  */
 /**
- * @author Gaëtan Le Barbé gaetan.lebarbe@ecole.ensicaen.fr
- * @version 0.0.1
- * @date 28 mars 2013
+ * @author Meunier Guillaume 
+ * 
  */
 package prototype;
 
 import javax.swing.SwingUtilities;
-
 import graphique.FenetrePrincipale;
 import graphique.Fenetre_Reglages;
 
-/**
- * @author Meunier Guillaume 
- * 
- */
 public class Main
 {
 

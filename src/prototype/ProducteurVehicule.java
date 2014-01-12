@@ -8,16 +8,11 @@
  * or revised without written permission of the authors.
  */
 /**
- * @author Gaëtan Le Barbé gaetan.lebarbe@ecole.ensicaen.fr
- * @version 0.0.1
- * @date 28 mars 2013
- */
-package prototype;
-
-/**
  * @author Meunier Guillaume 
  * 
  */
+package prototype;
+
 public class ProducteurVehicule extends Thread
 {
 	static int			i	= 0;
@@ -40,6 +35,7 @@ public class ProducteurVehicule extends Thread
 				synchronized (buffer)
 				{
 					i++;
+					System.out.println("Le vehicule" + i + " arrive en station");
 					buffer.depose(new Integer(i));
 				}
 			}

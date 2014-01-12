@@ -1,5 +1,5 @@
 package comBarriereVehicule;
 
-public enum Categorie {
+public enum TypeVehicule {
 	Moto, Voiture, PoidLourd;
 }

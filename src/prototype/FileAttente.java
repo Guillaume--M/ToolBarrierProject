@@ -8,9 +8,8 @@
  * or revised without written permission of the authors.
  */
 /**
- * @author Gaëtan Le Barbé gaetan.lebarbe@ecole.ensicaen.fr
- * @version 0.0.1
- * @date 28 mars 2013
+ * @author Meunier Guillaume 
+ * 
  */
 package prototype;
 
@@ -55,7 +54,6 @@ public class FileAttente
 	{
 		if (empty)
 		{
-			System.out.println("Borne libre en attente");
 			return null;
 		}
 		currentGet = (currentGet + 1) % size;

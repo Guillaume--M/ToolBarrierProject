@@ -14,6 +14,7 @@ public class Peage extends Box {
 
 	private static int m_numeroPeage = 0;
 		
+	
 	public Peage(int etat, int vehicule, int paiement){
 		super(BoxLayout.X_AXIS);
 		m_numeroPeage++;		
@@ -36,7 +37,7 @@ public class Peage extends Box {
 		BoutonPeage boutonPaiement = new BoutonPeage(paiement, cheminPaiement);
 		
 		
-		add(new JLabel("Borne nï¿½" + m_numeroPeage));
+		add(new JLabel("Borne n°" + m_numeroPeage + "  "));
 		add(boutonEtat);
 		add(boutonVehicule);
 		add(boutonPaiement);
