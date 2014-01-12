@@ -11,7 +11,7 @@
  * @author Meunier Guillaume 
  * 
  */
-package prototype;
+package barriere;
 
 /**
  * @author Meunier Guillaume 

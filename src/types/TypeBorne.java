@@ -1,4 +1,4 @@
-package comBarriereVehicule;
+package types;
 
 import java.util.ArrayList;
 

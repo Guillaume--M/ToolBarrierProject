@@ -11,7 +11,7 @@
  * @author Meunier Guillaume 
  * 
  */
-package prototype;
+package barriere;
 
 import javax.swing.SwingUtilities;
 import graphique.FenetrePrincipale;
@@ -35,3 +35,4 @@ public class Main
 	}
 
 }
+

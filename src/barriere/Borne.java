@@ -11,11 +11,10 @@
  * @author Meunier Guillaume 
  * 
  */
-package prototype;
+package barriere;
 
 import java.util.ArrayList;
-
-import comBarriereVehicule.*;
+import types.*;
 
 public class Borne extends Thread
 {

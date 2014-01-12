@@ -1,10 +1,10 @@
-package prototype;
+package barriere;
 
-import comBarriereVehicule.TypeBorne;
+import types.*;
 
-public class BorneManuel extends Borne {
+public class BorneTele extends Borne {
 
-	private static int nombreManuel = 0;
+	private static int nombreTele = 0;
 
 	/**
 	 * Constructeur d'une borne automatique
@@ -16,19 +16,19 @@ public class BorneManuel extends Borne {
 	 * @param stat
 	 *            Etat ouvert/fermee de la borne
 	 */
-	public BorneManuel(FileAttente buffer, TypeBorne type, boolean stat,
+	public BorneTele(FileAttente buffer, TypeBorne type, boolean stat,
 			String nam) {
 
 		super(buffer, type, stat);
-		numero = ++nombreManuel;
+		numero = ++nombreTele;
 	}
 
 	/**
-	 * @name Getter du nombreManuel
-	 * @return int Le nombre de bornes "Manuel" crees
+	 * @name Getter de nombreTele
+	 * @return int Le nombre de bornes "Tele" crees
 	 */
 	public static int getNombre() {
-		return nombreManuel;
+		return nombreTele;
 	}
 
 }

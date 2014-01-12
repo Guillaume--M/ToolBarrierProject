@@ -1,7 +1,7 @@
-package prototype;
+package barriere;
 
 import java.util.ArrayList;
-import comBarriereVehicule.TypeBorne;
+import types.*;
 
 public class BarrierePeage {
 

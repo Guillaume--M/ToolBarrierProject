@@ -2,6 +2,7 @@ package graphique;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
+
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -11,11 +12,10 @@ import javax.swing.JTextPane;
 import javax.swing.LayoutStyle;
 import javax.swing.SpinnerListModel;
 import javax.swing.SpinnerNumberModel;
-
 import javax.swing.WindowConstants;
 import javax.swing.SwingUtilities;
 
-import prototype.BarrierePeage;
+import barriere.BarrierePeage;
 
 
 /**
