@@ -1,15 +1,23 @@
 package vehicule;
 
+import barriere.FileAttente;
 import types.*;
 
 public class PoidLourd extends Vehicule {
-	PoidLourd(int i,Payement p) {
-		super(i,p);
-		_categorie = TypeVehicule.PoidLourd;
+
+	/**
+	 * Constructeur d'une PoidLourd
+	 * 
+	 * @param buffer
+	 *            La file d'attente auquel est assigne la PoidLourd
+	 * @param type
+	 *            Le type de vehicule que l'on construit
+	 * @param defectuosite
+	 *            Etat defectueux de la PoidLourd
+	 */
+	public PoidLourd(FileAttente buffer, TypeVehicule type, boolean stat,
+			int i) {
+		super(buffer, type, stat,i);
 	}
 
-	public PoidLourd(int i,Payement p,boolean defectueux){
-		super(i,p,defectueux);
-		_categorie = TypeVehicule.PoidLourd;
-	}
 }

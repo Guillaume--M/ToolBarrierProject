@@ -13,6 +13,8 @@
  */
 package barriere;
 import vehicule.*;
+import java.util.Vector;
+import types.*;
 
 /**
  * @author Meunier Guillaume 
@@ -23,51 +25,101 @@ public class FileAttente
 	int		 size, currentPut, currentGet;
 	boolean	 full;
 	boolean empty;
-	Vehicule tab[];
+	Vector<Vehicule> listVehicule;
 
 	public FileAttente(int size)
 	{
 		this.size = size;
-		tab = new Vehicule[size];
+		listVehicule = new Vector<Vehicule>(size);
 		currentGet = -1;
 		currentPut = 0;
 		full = false;
 		empty = true;
-	}
+		}
 
 	public void depose(Vehicule o)
 	{
-		if (full)
+		
+		if(listVehicule.size()>=size)
 		{
-			System.out.println("Trop de vehicules en attente : Bouchon");
-			return;
+			System.out.println("Trop de Objects en attente : Bouchon");
 		}
-		tab[currentPut] = o;
-		currentPut = (currentPut + 1) % size;
-		if (currentGet == currentPut)
+		else
 		{
-			full = true;
+		listVehicule.add(o);
 		}
-		empty = false;
 	}
 
 	public Vehicule accepteVehicule()
 	{
-		if (empty)
+		
+		if(listVehicule.size() == 0)
 		{
+			System.out.println("Borne libre en attente");
 			return null;
 		}
-		currentGet = (currentGet + 1) % size;
-		if (currentGet == currentPut)
-		{
-			empty = true;
-		}
-		full = false;
-		return tab[currentGet];
+		
+		Vehicule currentV = listVehicule.firstElement();
+		listVehicule.remove(currentV);
+		return currentV;
 	}
 
 	public boolean isFull()
 	{
-		return full;
+		if( listVehicule.size() >= size)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	
+	public int getNbPoidsLourd(){
+		int nb = 0;
+		for(int i = 0;i<size;i++){
+			if(listVehicule.get(i).getCategorie() == TypeVehicule.PoidLourd)
+				nb++;
+		}
+			return nb;
+	}
+	public int getNbMoto(){
+		int nb = 0;
+		for(int i = 0;i<size;i++){
+			if(listVehicule.get(i).getCategorie() == TypeVehicule.Moto)
+				nb++;
+		}
+			return nb;
+	}
+	public int getNbVoiture(){
+		int nb = 0;
+		for(int i = 0;i<size;i++){
+			if(listVehicule.get(i).getCategorie() == TypeVehicule.Voiture)
+				nb++;
+		}
+			return nb;
+	}
+	/*public int getNbSpecial(){
+		int nb = 0;
+		for(int i = 0;i<size;i++){
+			if(listVehicule.get(i).getCategorie() == Categorie.Special)
+				nb++;
+		}
+			return nb;
+	}*/
+	public void filplus(){
+		this.size = size++;
+	}
+	public int filmoins(){
+		if(full){
+			System.out.println("File d'attente plein: impossible de reduire");
+			return 0;
+		}
+		else{
+			this.size = size--;
+			return 1;
+		}
 	}
 }

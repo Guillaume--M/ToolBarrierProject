@@ -1,19 +1,25 @@
 package vehicule;
 
-import types.TypeVehicule;
-
+import barriere.FileAttente;
 import types.*;
 
-public class Voiture extends Vehicule{
+public class Voiture extends Vehicule {
 
-	public Voiture(int i,Payement p) {
-		super(i,p);
-		_categorie = TypeVehicule.Voiture;
+
+	/**
+	 * Constructeur d'une Voiture
+	 * 
+	 * @param buffer
+	 *            La file d'attente auquel est assigne la Voiture
+	 * @param type
+	 *            Le type de vehicule que l'on construit
+	 * @param defectuosite
+	 *            Etat defectueux de la Voiture
+	 */
+	public Voiture(FileAttente buffer, TypeVehicule type, boolean stat,int i) {
+		super(buffer, type, stat,i);
 	}
-	
-	public Voiture(int i,Payement p,boolean defectueux){
-		super(i,p,defectueux);
-		_categorie = TypeVehicule.Voiture;
-	}
+
+
 
 }

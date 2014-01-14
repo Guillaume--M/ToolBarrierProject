@@ -115,18 +115,17 @@ public class Borne extends Thread
 				vehicule = buffer.accepteVehicule();
 			}
 			if (null != vehicule) {
-				System.out
-						.println(typeBorne.getName() + ": traite le vehicule n" + vehicule.getNumero());
+				Rapport.getInstance().ajouterLigne(typeBorne.getName() + ": traite le vehicule n" + vehicule.getNumero());
 				try {
 					if(vehicule.getDefectuosite()){
-						System.out.println("Vehicule n " + vehicule.getNumero() + " : Voiture defectueuse.");
+						GestionnaireAlarme.ajouterAlarme(new Alarme(TypeAlarme.Vehicule_Defectueux," "));
 						Thread.sleep(20000);
 						}
 					Thread.sleep(tempo);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				System.out.println("Vehicule n " + vehicule.getNumero()
+				Rapport.getInstance().ajouterLigne("Vehicule n " + vehicule.getNumero()
 						+ " : Paiement accepte.");
 				try {
 					Thread.sleep(2000);
@@ -135,7 +134,7 @@ public class Borne extends Thread
 				}
 			}
 			else{
-				System.out.println("Borne " + typeBorne.getName() + " libre");
+				Rapport.getInstance().ajouterLigne("Borne " + typeBorne.getName() + " libre");
 				}
 			try {
 				Thread.sleep(1000);

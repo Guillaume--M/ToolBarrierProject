@@ -63,12 +63,17 @@ public enum TypeBorne {
 			addPaiement(TypePaiement.Monnaie);
 			addPaiement(TypePaiement.CB);
 			addPaiement(TypePaiement.Abonnement);
+			addPaiement(TypePaiement.Gratuit);
 		} else if (nom.equals(Manuel)) {
-			addPaiement(TypePaiement.CB);
 			addPaiement(TypePaiement.Monnaie);
+			addPaiement(TypePaiement.CB);
 			addPaiement(TypePaiement.Abonnement);
+			addPaiement(TypePaiement.Gratuit);
 		} else if (nom.equals(Tele)) {
-			addPaiement(TypePaiement.Telepayage);
+			addPaiement(TypePaiement.Monnaie);
+			addPaiement(TypePaiement.CB);
+			addPaiement(TypePaiement.Abonnement);
+			addPaiement(TypePaiement.Gratuit);
 		}
 
 	}

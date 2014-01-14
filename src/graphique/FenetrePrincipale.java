@@ -12,19 +12,26 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 
+import barriere.BarrierePeage;
+
+/**
+ * 
+ * @author Bruy√®re Julien
+ * @version 1.0
+ *
+ */
 public class FenetrePrincipale extends JFrame {
-	
-	private InterfaceInfo info = new InterfaceInfo();
-	private InterfaceAlarme alarme = new InterfaceAlarme();
-	private InterfacePeage peage = new InterfacePeage(5);
-	private InterfaceRapport rapport = new InterfaceRapport();
-	private InterfaceReglage reglage = new InterfaceReglage(peage);
 	
 	
 	public FenetrePrincipale(int longueur, int hauteur) {
-
 		
-		setTitle("Simulateur de barriËre de pÈage");
+		InterfaceInfo info = new InterfaceInfo();
+		InterfaceAlarme alarme = new InterfaceAlarme();
+		InterfaceRapport rapport = new InterfaceRapport();
+		InterfacePeage peage = new InterfacePeage();
+		InterfaceReglage reglage = new InterfaceReglage(peage, info);
+		
+		setTitle("Simulateur de barri√®re de p√©age");
 		setSize(longueur, hauteur);
 		setLocationRelativeTo(null);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,10 +47,11 @@ public class FenetrePrincipale extends JFrame {
 	    splitPI.setDividerLocation(longueur/4);
 	    
 	    JSplitPane splitRapport = new JSplitPane(JSplitPane.VERTICAL_SPLIT, splitPI, rapport);
-	    splitRapport.setDividerLocation(hauteur-250);
+	    splitRapport.setDividerLocation(hauteur/2);
 	    
 	    
 	    getContentPane().add(splitRapport, BorderLayout.CENTER);
 	    setVisible(true);
+	    
 	}
 }

@@ -9,15 +9,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-
+/**
+ * 
+ * @author Bruyère Julien
+ * @version 1.0
+ *
+ */
 public class Peage extends Box {
 
-	private static int m_numeroPeage = 0;
-		
+	private JLabel m_numeroLabel;
 	
-	public Peage(int etat, int vehicule, int paiement){
-		super(BoxLayout.X_AXIS);
-		m_numeroPeage++;		
+	public Peage(int etat, int vehicule, int paiement, int numeroBorne){
+		super(BoxLayout.X_AXIS);		
 		
 		ArrayList<String> cheminEtat = new ArrayList<String>();
 		cheminEtat.add("resources/croix.png");
@@ -32,14 +35,19 @@ public class Peage extends Box {
 		cheminPaiement.add("resources/telepeage.png");
 		cheminPaiement.add("resources/CB.png");
 		
-		BoutonPeage boutonEtat = new BoutonPeage(etat, cheminEtat);
-		BoutonPeage boutonVehicule = new BoutonPeage(vehicule, cheminVehicule);
-		BoutonPeage boutonPaiement = new BoutonPeage(paiement, cheminPaiement);
+		BoutonPeage boutonEtat = new BoutonPeage(etat, cheminEtat, numeroBorne-1, 0);
+		BoutonPeage boutonVehicule = new BoutonPeage(vehicule, cheminVehicule, numeroBorne-1, 1);
+		BoutonPeage boutonPaiement = new BoutonPeage(paiement, cheminPaiement, numeroBorne-1, 2);
 		
+		m_numeroLabel = new JLabel("Borne n°" + numeroBorne + "  ");
 		
-		add(new JLabel("Borne n�" + m_numeroPeage + "  "));
+		add(m_numeroLabel);
 		add(boutonEtat);
 		add(boutonVehicule);
 		add(boutonPaiement);
+	}
+	
+	public void modifNumero(int numeroBorne) {
+		m_numeroLabel.setText("Borne n°" + numeroBorne + "  ");
 	}
 }

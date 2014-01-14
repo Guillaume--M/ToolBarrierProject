@@ -1,41 +1,78 @@
+/* ENSICAEN
+ * 6 Boulevard Marechal Juin 
+ * F-14050 Caen Cedex 
+ *
+ * This file is owned by ENSICAEN students.
+ * No portion of this document may be reproduced, copied
+ * or revised without written permission of the authors.
+ */
+/**
+ * @author Meunier Guillaume 
+ * 
+ */
 package vehicule;
 
-import types.TypeVehicule;
+import java.util.ArrayList;
+
+import barriere.FileAttente;
 import types.*;
 
-public abstract class Vehicule {
-	public int _numero;
-	protected Payement _payement;
-	protected TypeVehicule _categorie;
-	public boolean _defectueux;
+public class Vehicule extends Thread {
+	protected int numero;
+	protected boolean defectueux;
 
-	public Vehicule(int i,Payement p) {
-		_numero = i;
-		_payement = p;
+	protected FileAttente buffer;
+
+	protected ArrayList<TypePaiement> paiementPossede;
+
+	protected TypeVehicule typeVehicule;
+
+	/**
+	 * 
+	 * Constructeur d'un vehicule
+	 * 
+	 * @param file
+	 *            La file d'attente auquel est assign� le vehicule
+	 * @param num
+	 *            le numero du vehicule
+	 */
+
+	public Vehicule(FileAttente file, TypeVehicule type, boolean sta, int i) {
+		numero = i;
+		defectueux = sta;
+		buffer = file;
+		paiementPossede = new ArrayList<>();
+		typeVehicule = type;
 	}
 
-	public Vehicule(int i,Payement p,boolean defectueux) {
-		_numero = i;
-		_payement = p;
-		_defectueux = defectueux;
-	}
-	public TypeVehicule getCategorie() {
-		return _categorie;
+	/**
+	 * Getter du numero
+	 * 
+	 * @return int Le numero du vehicule
+	 */
+	public int getNumero() {
+		return numero;
 	}
 
-	public Payement getTypedePayement() {
-		return _payement;
+	/**
+	 * Setter de la defectuosite
+	 * 
+	 * @param stat
+	 *            true=defectueux, false=ok
+	 */
+	public void setDefectuosite(boolean stat) {
+		defectueux = stat;
 	}
-	
-	public boolean getDefectuosite(){
-		return _defectueux;
-	}
-	
-	public int getNumero(){
-		return _numero;
-	}
-	
-	
-	
 
+	/**
+	 * Getter de la defectuosite
+	 * 
+	 * @return boolean La valeur du defectueux
+	 */
+	public boolean getDefectuosite() {
+		return defectueux;
+	}
+	public TypeVehicule getCategorie(){
+		return typeVehicule;
+	}
 }
