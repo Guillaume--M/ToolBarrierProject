@@ -12,6 +12,8 @@
  * 
  */
 package barriere;
+import vehicule.*;
+import types.*;
 
 public class ProducteurVehicule extends Thread
 {
@@ -23,6 +25,36 @@ public class ProducteurVehicule extends Thread
 	{
 		this.tempo = tempo;
 		this.buffer = buffer;
+	}
+	
+	public Vehicule CreerVehicule(int i){
+		Vehicule v;
+		boolean defectueux;
+		Payement p = new Payement(100,TypePaiement.CB);
+		
+		
+		
+		float r1 = (float) (Math.random()*100);
+		float r2 = (float) (Math.random()*100);
+		
+		if(r2>90){
+			defectueux = true;
+		}
+		else{
+			defectueux = false;
+		}
+		
+		if(r1<50){
+			v = new Voiture(i,p,defectueux);
+		}
+		else if (r1<75){
+			v = new PoidLourd(i,p,defectueux);
+		}
+		else{
+			v = new Moto(i,p,defectueux);
+		}
+		
+		return v;
 	}
 
 	@Override
@@ -36,7 +68,7 @@ public class ProducteurVehicule extends Thread
 				{
 					i++;
 					System.out.println("Le vehicule" + i + " arrive en station");
-					buffer.depose(new Integer(i));
+					buffer.depose(this.CreerVehicule(i));
 				}
 			}
 			else

@@ -13,8 +13,10 @@
  */
 package barriere;
 
+
 import java.util.ArrayList;
 import types.*;
+import vehicule.*;
 
 public class Borne extends Thread
 {
@@ -33,7 +35,7 @@ public class Borne extends Thread
 	 * Constructeur d'une borne
 	 * 
 	 * @param file
-	 *            La file d'attente auquel est assigné la borne
+	 *            La file d'attente auquel est assignï¿½ la borne
 	 * @param num
 	 *            le numero de la borne
 	 * @param temp
@@ -104,26 +106,27 @@ public class Borne extends Thread
 		return false;
 	}
 
-	public void mutation(TypeBorne type) {
-
-	}
-
+	
 	@Override
 	public void run() {
-		Object vehicule;
+		Vehicule vehicule;
 		while (true) {
 			synchronized (buffer) {
 				vehicule = buffer.accepteVehicule();
 			}
 			if (null != vehicule) {
 				System.out
-						.println(typeBorne.getName() + ": traite le vehicule n" + vehicule);
+						.println(typeBorne.getName() + ": traite le vehicule n" + vehicule.getNumero());
 				try {
+					if(vehicule.getDefectuosite()){
+						System.out.println("Vehicule n " + vehicule.getNumero() + " : Voiture defectueuse.");
+						Thread.sleep(20000);
+						}
 					Thread.sleep(tempo);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				System.out.println("Vehicule n " + vehicule
+				System.out.println("Vehicule n " + vehicule.getNumero()
 						+ " : Paiement accepte.");
 				try {
 					Thread.sleep(2000);

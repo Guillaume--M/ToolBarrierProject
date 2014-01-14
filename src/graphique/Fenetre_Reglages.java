@@ -78,7 +78,7 @@ public class Fenetre_Reglages extends javax.swing.JFrame {
 			}
 			{
 				Debit_V = new JTextPane();
-				Debit_V.setText("Nb de voiture par sec : ");
+				Debit_V.setText("Nb de voiture par Minutes : ");
 			}
 			{
 				Valider = new JButton();
@@ -86,10 +86,10 @@ public class Fenetre_Reglages extends javax.swing.JFrame {
 				Valider.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
 						
-						//Nb_bornes[0] = (Integer)Spinner_bornes_manuelles.getValue();
-						//Nb_bornes[1] = (Integer)Spinner_bornes_telep.getValue();
-						//Nb_bornes[2] = (Integer)Spinner_bornes_auto.getValue();
-						//tempo		 = (1/(Integer)Spinner_debit_voiture.getValue())*1000;
+						Nb_bornes[0] = (Integer)Spinner_bornes_manuelles.getValue();
+						Nb_bornes[1] = (Integer)Spinner_bornes_telep.getValue();
+						Nb_bornes[2] = (Integer)Spinner_bornes_auto.getValue();
+						tempo		 = (1/(Integer)Spinner_debit_voiture.getValue())*1000;
 						new BarrierePeage(Nb_bornes,
 								(Integer)Spinner_taille_file.getValue(),
 								tempo);

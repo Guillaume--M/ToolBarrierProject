@@ -12,6 +12,7 @@
  * 
  */
 package barriere;
+import vehicule.*;
 
 /**
  * @author Meunier Guillaume 
@@ -22,19 +23,19 @@ public class FileAttente
 	int		 size, currentPut, currentGet;
 	boolean	 full;
 	boolean empty;
-	Object	 tab[];
+	Vehicule tab[];
 
 	public FileAttente(int size)
 	{
 		this.size = size;
-		tab = new Object[size];
+		tab = new Vehicule[size];
 		currentGet = -1;
 		currentPut = 0;
 		full = false;
 		empty = true;
 	}
 
-	public void depose(Object o)
+	public void depose(Vehicule o)
 	{
 		if (full)
 		{
@@ -50,7 +51,7 @@ public class FileAttente
 		empty = false;
 	}
 
-	public Object accepteVehicule()
+	public Vehicule accepteVehicule()
 	{
 		if (empty)
 		{
