@@ -1,5 +1,7 @@
 package graphique;
 
+import java.awt.BorderLayout;
+import java.awt.LayoutManager;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -9,28 +11,41 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 import barriere.Rapport;
 
+/**
+ * 
+ * @author Bruyère Julien
+ * @version 1.0
+ *
+ */
+public class InterfaceRapport extends JPanel {
 
-public class InterfaceRapport extends JScrollPane {
+	private JScrollPane panel = new JScrollPane(Rapport.getInstance()._jta);
+	private JButton bouton= new JButton("Imprimer");
+	private JLabel titre = new JLabel("Rapport en temps réél");
 
-	private static JPanel pane = new JPanel();
-	private static JButton bouton= new JButton("Imprimer");
-	private static JTextArea texte;
-	
 	public InterfaceRapport() {
-		super(pane);
-		
-		//Rapport.ajouterObservateur(texte);
-		pane.add(Rapport.getInstance()._jta);
-		
 
+		this.setLayout(new BorderLayout());
+		
+		titre.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		bouton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent evt) {
 				Rapport.getInstance().creerFichier();
 			}
 		});
-		pane.add(bouton);
+		
+		
+		panel.setMaximumSize(this.getPreferredSize());
+		
+		this.add(titre, BorderLayout.NORTH);
+		this.add(panel, BorderLayout.CENTER);
+		this.add(bouton, BorderLayout.SOUTH);
+		
+		this.setVisible(true);
 	}
 }

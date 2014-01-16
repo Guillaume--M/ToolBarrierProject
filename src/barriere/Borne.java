@@ -21,7 +21,7 @@ public class Borne extends Thread {
 	protected int tempo;
 	protected int numero;
 	protected boolean status;
-
+	boolean interuption;
 	protected FileAttente buffer;
 
 	protected ArrayList<TypePaiement> paiementAccepte;
@@ -41,6 +41,7 @@ public class Borne extends Thread {
 	 */
 
 	public Borne(FileAttente file, TypeBorne type, boolean sta) {
+		interuption = true;
 		tempo = type.getTempo();
 		status = sta;
 		buffer = file;
@@ -105,6 +106,11 @@ public class Borne extends Thread {
 		return false;
 	}
 
+	public void interuption() {
+		this.setStatus(false);
+		interuption = false;
+	}
+
 	@Override
 	public void run() {
 		try {
@@ -113,7 +119,7 @@ public class Borne extends Thread {
 			e.printStackTrace();
 		}
 		Vehicule vehicule;
-		while (true) {
+		while (interuption) {
 
 			while (status) {
 
@@ -122,14 +128,15 @@ public class Borne extends Thread {
 				}
 				if (null != vehicule) {
 					Rapport.getInstance().ajouterLigne(
-							typeBorne.getName() + ": traite le vehicule n"
-									+ vehicule.getNumero());
+							typeBorne.getName() + ": traite le vehicule "
+									+ vehicule.getCategorie().getName()
+									+ " n° " + vehicule.getNumero());
 					try {
-						if(vehicule.getDefectuosite()){
-							GestionnaireAlarme.ajouterAlarme(new Alarme(TypeAlarme.Vehicule_Defectueux," "));
+						if (vehicule.getDefectuosite()) {
+							GestionnaireAlarme.ajouterAlarme(new Alarme(
+									TypeAlarme.Vehicule_Defectueux, " "));
 							Thread.sleep(20000);
-							}
-						else{
+						} else {
 							RapportPaiement.enregisterInfos(vehicule);
 						}
 						Thread.sleep(tempo);
@@ -137,7 +144,8 @@ public class Borne extends Thread {
 						e.printStackTrace();
 					}
 					Rapport.getInstance().ajouterLigne(
-							"Vehicule n " + vehicule.getNumero()
+							"Vehicule " + vehicule.getCategorie().getName()
+									+ " n° " + vehicule.getNumero()
 									+ " : Paiement accepte.");
 					try {
 						Thread.sleep(2000);

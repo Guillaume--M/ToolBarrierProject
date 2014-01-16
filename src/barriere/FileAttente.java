@@ -40,7 +40,6 @@ public class FileAttente {
 	public void depose(Vehicule o) {
 
 		if (listVehicule.size() >= size) {
-			System.out.println("Trop de Objects en attente : Bouchon");
 		} else {
 			listVehicule.add(o);
 		}
@@ -100,10 +99,10 @@ public class FileAttente {
 	 * return nb; }
 	 */
 	public void filplus() {
-		this.size = size++;
+		this.size++;
 	}
 
 	public void filmoins() {
-		this.size = size--;
+		this.size--;
 	}
 }

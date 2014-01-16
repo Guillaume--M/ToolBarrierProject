@@ -102,7 +102,7 @@ public class Fenetre_Reglages extends javax.swing.JFrame {
 								(Integer)Spinner_taille_file.getValue(),
 								Debit_VCM);
 						
-						new FenetrePrincipale(1024, 768);
+						new FenetrePrincipale(1200, 800);
 					}
 				});
 			}

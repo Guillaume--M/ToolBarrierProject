@@ -1,17 +1,29 @@
 package graphique;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
 import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 import barriere.BarrierePeage;
 
-
-public class InterfaceInfo extends JScrollPane {
+/**
+ * @author Rodolphe Adam
+ * @author Guillaume Meunier
+ * @author Bruyère Julien
+ * @version 1.0
+ *
+ */
+public class InterfaceInfo extends JPanel {
 	
-	private Box boite = Box.createVerticalBox();
+	private JLabel titre = new JLabel("Informations");
+	private Box conteneurInfos = Box.createVerticalBox();
+	private JScrollPane scrollPane = new JScrollPane(conteneurInfos);
 	
 	private int taille_file = BarrierePeage.getInstance().getSize();
 	private int debit_V = BarrierePeage.getInstance().getDebitV();
@@ -22,36 +34,45 @@ public class InterfaceInfo extends JScrollPane {
 	private int nbC = 0;
 	private int nbM = 0;
 	
-	private JLabel file = new JLabel("Taille de la file d'attente :" + taille_file);
-	private JLabel DV = new JLabel("Debit Voiture :" + debit_V);
-	private JLabel DC = new JLabel("Debit Camion :" + debit_C);
-	private JLabel DM = new JLabel("Debit Moto :" + debit_M);
-	private JLabel NV = new JLabel("Nombre de Voiture: " + nbV);
-	private JLabel NC = new JLabel("Nombre de   Moto : " + nbM);
+	private JLabel file = new JLabel("Taille de la file d'attente : " + taille_file);
+	private JLabel DV = new JLabel("Debit Voiture : " + debit_V);
+	private JLabel DC = new JLabel("Debit Camion : " + debit_C);
+	private JLabel DM = new JLabel("Debit Moto : " + debit_M);
+	private JLabel NV = new JLabel("Nombre de Voiture : " + nbV);
+	private JLabel NC = new JLabel("Nombre de Moto : " + nbM);
 	private JLabel NM = new JLabel("Nombre de Camion : " + nbC);
 	
 	public InterfaceInfo() {
 		_instance = this;
 		
-		setViewportView(boite);
+		this.setLayout(new BorderLayout());
 		
-		boite.add(new JLabel("Informations"));
+		titre.setHorizontalAlignment(SwingConstants.CENTER);
+		this.add(titre, BorderLayout.NORTH);
+		
 
-		boite.add(file);
+		conteneurInfos.add(file);
+		conteneurInfos.add(Box.createRigidArea(new Dimension(0, 10)));
 		
-		boite.add(DV);
+		conteneurInfos.add(DV);
+		conteneurInfos.add(Box.createRigidArea(new Dimension(0, 10)));
 		
-		boite.add(DC);
+		conteneurInfos.add(DC);
+		conteneurInfos.add(Box.createRigidArea(new Dimension(0, 10)));
 		
-		boite.add(DM);
+		conteneurInfos.add(DM);
+		conteneurInfos.add(Box.createRigidArea(new Dimension(0, 10)));
 		
-		boite.add(NV);		
+		conteneurInfos.add(NV);
+		conteneurInfos.add(Box.createRigidArea(new Dimension(0, 10)));
 		
-		boite.add(NC);
+		conteneurInfos.add(NC);
+		conteneurInfos.add(Box.createRigidArea(new Dimension(0, 10)));
 		
-		boite.add(NM);
-			
+		conteneurInfos.add(NM);
+		conteneurInfos.add(Box.createRigidArea(new Dimension(0, 10)));
 		
+		this.add(scrollPane, BorderLayout.CENTER);
 	}
 
 	public void filePlus() {
@@ -70,7 +91,7 @@ public class InterfaceInfo extends JScrollPane {
 	}
 	
 	public void DebitVMoins() {
-		if (debit_V != 0) {
+		if (debit_V != 1) {
 			debit_V--;
 			DV.setText("Debit Voiture :" + debit_V);
 		}
@@ -82,7 +103,7 @@ public class InterfaceInfo extends JScrollPane {
 	}
 
 	public void DebitCMoins() {
-		if (debit_C != 0) {
+		if (debit_C != 1) {
 			debit_C--;
 			DC.setText("Debit Camion :" + debit_C);
 		}
@@ -94,7 +115,7 @@ public class InterfaceInfo extends JScrollPane {
 	}
 
 	public void DebitMMoins() {
-		if (debit_M != 0) {
+		if (debit_M != 1) {
 			debit_M--;
 			DM.setText("Debit Moto :" + debit_M);
 		}

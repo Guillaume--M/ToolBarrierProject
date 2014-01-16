@@ -15,6 +15,8 @@ public final class GestionnaireAlarme {
 	public static void ajouterAlarme(Alarme a){
 		_la.add(a);
 		_jta.append("\n"+a._type + a._message);
+		
+		_jta.setCaretPosition(_jta.getDocument().getLength());
 	}
 	
 	void retirerAlarme(int i){

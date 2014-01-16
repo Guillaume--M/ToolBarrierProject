@@ -8,9 +8,11 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.Vector;
 
+import javax.swing.JFileChooser;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public final class Rapport {
 	private static Rapport _instance = new Rapport();
@@ -28,6 +30,8 @@ public final class Rapport {
 	public void ajouterLigne(String l){
 		_tableau.add(l+"\n");
 		_jta.append(l+"\n");
+		
+		_jta.setCaretPosition(_jta.getDocument().getLength());
 	}
 	
 	/*
@@ -48,7 +52,7 @@ public final class Rapport {
 	public static void ajouterObservateur(JTextArea jta) {
 		_jta = jta;
 	}
-	
+	/*
 	public boolean creerFichier(){
 		File f = new File ("rapport.txt");
 		 
@@ -62,6 +66,42 @@ public final class Rapport {
 			System.out.println ("Erreur lors de la lecture : " + exception.getMessage());
 			return false;
 		}
+		return true;
+	}*/
+	
+	/**
+	 * @author Bruyère Julien
+	 * 
+	 */
+	public boolean creerFichier(){
+		JFileChooser filechoose = new JFileChooser(new File("."));
+		
+		filechoose.setFileFilter(new FileNameExtensionFilter("Fichiers txt.", "txt"));
+		
+		if (filechoose.showDialog(filechoose, "Enregistrer") == JFileChooser.APPROVE_OPTION) {
+	
+			String nomFichier = new String(filechoose.getSelectedFile().toString());
+			
+			if(!nomFichier.endsWith(".txt")){
+				nomFichier = nomFichier + ".txt";
+			}
+		
+			try {
+				FileWriter lu = new FileWriter(nomFichier);
+				
+				BufferedWriter out = new BufferedWriter(lu);
+				out.write(getRapport());
+				out.write(RapportPaiement.getInstance().getRapportPaiement());
+				
+				out.close();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+				return false;
+			}
+				
+		}
+		 
 		return true;
 	}
 	

@@ -31,6 +31,8 @@ public class ProducteurVehicule extends Thread {
 	public ProducteurVehicule(int nbrvehiculeparmin, TypeVehicule type,
 			FileAttente buffer) {
 		this.buffer = buffer;
+		if (nbrvehiculeparmin == 0)
+			nbrvehiculeparmin = 1;
 		tempo = 60000 / nbrvehiculeparmin;
 		typeVehiculeCreer = type;
 
@@ -39,7 +41,7 @@ public class ProducteurVehicule extends Thread {
 	public Vehicule CreerVehicule(boolean def) {
 
 		Vehicule v;
-		Paiement p = new Paiement(15,TypePaiement.CB);
+		Paiement p = new Paiement(15, TypePaiement.CB);
 		if (!def) {
 			++i;
 			float r1 = (float) (Math.random() * 100);
@@ -49,12 +51,12 @@ public class ProducteurVehicule extends Thread {
 				defectueux = true;
 			} else {
 				defectueux = false;
-			} 
-			v= new Vehicule(buffer, typeVehiculeCreer, defectueux, i,p);
+			}
+			v = new Vehicule(buffer, typeVehiculeCreer, defectueux, i, p);
 
 			return v;
 		} else {
-			v = new Vehicule(buffer, typeVehiculeCreer, def, i,p);
+			v = new Vehicule(buffer, typeVehiculeCreer, def, i, p);
 			return v;
 		}
 	}
@@ -63,6 +65,11 @@ public class ProducteurVehicule extends Thread {
 		nbDefectueux++;
 	}
 
+	public void setTempo(int nbrVehiculeParMin) {
+		if (nbrVehiculeParMin == 0)
+			nbrVehiculeParMin = 1;
+		this.tempo = 60000 / nbrVehiculeParMin;
+	}
 
 	@Override
 	public void run() {

@@ -1,7 +1,9 @@
 package graphique;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -11,7 +13,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextPane;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 
+import types.TypeVehicule;
 import vehicule.ProducteurVehicule;
 
 import barriere.BarrierePeage;
@@ -32,12 +36,13 @@ import vehicule.ProducteurVehicule;
 * THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
-public class InterfaceReglage extends JScrollPane implements ActionListener {
+public class InterfaceReglage extends JPanel implements ActionListener {
 
-	private Box boite = Box.createVerticalBox();
+	private JScrollPane scrollPanel = new JScrollPane();
+	private JLabel titre = new JLabel("Reglages");
+	
 	private InterfacePeage m_peage; 
 	private InterfaceInfo m_info; 
-	/*private ProducteurVehicule m_vehi;*/
 	private FileAttente File = BarrierePeage.getInstance().getFileAttente();
 	
 	private JButton boutonAjout = new JButton("Ajout borne");
@@ -50,67 +55,131 @@ public class InterfaceReglage extends JScrollPane implements ActionListener {
 	private JButton boutonDebitCMoins= new JButton(" - debit camion");
 	private JButton boutonDebitMPlus= new JButton(" + debit moto");
 	private JButton boutonDebitMMoins= new JButton(" - debit moto");
-	private JButton boutonDefectueux= new JButton("Vehicule defectueux");
+	private JButton boutonVDefectueux= new JButton("V defectueuse");
+	private JButton boutonCDefectueux= new JButton("C defectueuse");
+	private JButton boutonMDefectueux= new JButton("M defectueuse");
 	
 	private SpinnerNumberModel model;
 	private JSpinner spinnerSuppr;
+	private int debit;
 	
 	
-	public InterfaceReglage(InterfacePeage peage, InterfaceInfo info/*, ProducteurVehicule vehi*/) {
+	public InterfaceReglage(InterfacePeage peage, InterfaceInfo info) {
 		m_peage = peage;
 		m_info = info;
-		/*m_vehi = vehi;*/
+		
+		
+		ArrayList<Box> ligne = new ArrayList<Box>();
+		int index = 0;
+		
+		
+		titre.setHorizontalAlignment(SwingConstants.CENTER);
+		ligne.add(Box.createHorizontalBox());
+		ligne.get(index).add(titre);
+		index++;
+		
 
+		boutonAjout.addActionListener(this);
+		ligne.add(Box.createHorizontalBox());
+		ligne.get(index).add(boutonAjout);
+		index++;
+		
+		
 		model = new SpinnerNumberModel(1, 1, m_peage.getNbBornes(), 1);
 		spinnerSuppr = new JSpinner(model);
 		
-		setViewportView(boite);
-		
-		boite.add(new JLabel("Reglages"));
-		
-		boutonAjout.addActionListener(this);
-		boite.add(boutonAjout);
-		
-		JPanel suppr = new JPanel();
-		
 		boutonSuppr.addActionListener(this);
-		suppr.add(boutonSuppr);
-		suppr.add(spinnerSuppr);
+		ligne.add(Box.createHorizontalBox());
+		ligne.get(index).add(boutonSuppr);
+		ligne.get(index).add(spinnerSuppr);
+		index++;
 		
-		boite.add(suppr);
+		
+		Box ligneFile = Box.createHorizontalBox();
 		
 		boutonFilePlus.addActionListener(this);
-		boite.add(boutonFilePlus);
-		
+		ligneFile.add(boutonFilePlus);
+
 		boutonFileMoins.addActionListener(this);
-		boite.add(boutonFileMoins);
+		ligneFile.add(boutonFileMoins);
+		
+		ligne.add(ligneFile);
+		index++;
+		
+		
+		Box ligneDebitV = Box.createHorizontalBox();
 		
 		boutonDebitVPlus.addActionListener(this);
-		boite.add(boutonDebitVPlus);
-		
+		ligneDebitV.add(boutonDebitVPlus);
+
 		boutonDebitVMoins.addActionListener(this);
-		boite.add(boutonDebitVMoins);
+		ligneDebitV.add(boutonDebitVMoins);
+		
+		ligne.add(ligneDebitV);
+		index++;
+		
+		
+		Box ligneDebitC = Box.createHorizontalBox();
 		
 		boutonDebitCPlus.addActionListener(this);
-		boite.add(boutonDebitCPlus);
-		
+		ligneDebitC.add(boutonDebitCPlus);
+
 		boutonDebitCMoins.addActionListener(this);
-		boite.add(boutonDebitCMoins);
+		ligneDebitC.add(boutonDebitCMoins);
+		
+		ligne.add(ligneDebitC);
+		index++;	
+		
+		
+		Box ligneDebitM = Box.createHorizontalBox();
 		
 		boutonDebitMPlus.addActionListener(this);
-		boite.add(boutonDebitMPlus);
-		
+		ligneDebitM.add(boutonDebitMPlus);
+
 		boutonDebitMMoins.addActionListener(this);
-		boite.add(boutonDebitMMoins);
+		ligneDebitM.add(boutonDebitMMoins);
 		
-		boutonDefectueux.addActionListener(this);
-		boite.add(boutonDefectueux);
+		ligne.add(ligneDebitM);
+		index++;	
 		
+		
+		Box ligneDefectueux = Box.createHorizontalBox();
+		
+		boutonVDefectueux.addActionListener(this);
+		ligneDefectueux.add(boutonVDefectueux);
+		
+		ligneDefectueux.add(Box.createRigidArea(new Dimension(5, 0)));
+
+		boutonCDefectueux.addActionListener(this);
+		ligneDefectueux.add(boutonCDefectueux);
+		
+		ligneDefectueux.add(Box.createRigidArea(new Dimension(5, 0)));
+		
+		boutonMDefectueux.addActionListener(this);
+		ligneDefectueux.add(boutonMDefectueux);
+		
+		ligne.add(ligneDefectueux);
+		index++;	
+
+		
+		Box colonne = Box.createVerticalBox();
+		colonne.add(ligne.get(0));
+		colonne.add(Box.createRigidArea(new Dimension(0, 20)));
+		
+		for(int i=1; i<index; i++) {
+			colonne.add(ligne.get(i));
+			colonne.add(Box.createRigidArea(new Dimension(0, 5)));
+		}
+		
+		this.add(colonne);
+		this.setVisible(true);
 	}
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		int debit;
+
 		if(e.getSource() == boutonAjout) {
 			m_peage.ajoutBorne();
 			m_peage.revalidate();
@@ -144,7 +213,9 @@ public class InterfaceReglage extends JScrollPane implements ActionListener {
 		}
 		
 		else if(e.getSource() == boutonDebitVPlus) {
-			BarrierePeage.getInstance().DebitVPlus();
+			debit = BarrierePeage.getInstance().getDebitV() + 1 ;
+			BarrierePeage.getInstance().setTempo(debit, TypeVehicule.Voiture);
+			BarrierePeage.getInstance().setDebitV(debit);
 			m_info.DebitVPlus();
 			m_info.revalidate();
 			m_info.repaint();
@@ -152,7 +223,9 @@ public class InterfaceReglage extends JScrollPane implements ActionListener {
 		
 
 		else if(e.getSource() == boutonDebitCPlus) {
-			BarrierePeage.getInstance().DebitCPlus();
+			debit = BarrierePeage.getInstance().getDebitC() + 1 ;
+			BarrierePeage.getInstance().setTempo(debit, TypeVehicule.PoidLourd);
+			BarrierePeage.getInstance().setDebitC(debit);
 			m_info.DebitCPlus();
 			m_info.revalidate();
 			m_info.repaint();
@@ -160,38 +233,60 @@ public class InterfaceReglage extends JScrollPane implements ActionListener {
 		
 
 		else if(e.getSource() == boutonDebitVMoins) {
-			BarrierePeage.getInstance().DebitVMoins();
-			m_info.DebitVMoins();
-			m_info.revalidate();
-			m_info.repaint();
+			debit = BarrierePeage.getInstance().getDebitV() - 1 ;
+			if (debit > 0) {
+				BarrierePeage.getInstance().setTempo(debit, TypeVehicule.Voiture);
+				BarrierePeage.getInstance().setDebitV(debit);
+				m_info.DebitVMoins();
+				m_info.revalidate();
+				m_info.repaint();
+			}
 		}
 		
 
 		else if(e.getSource() == boutonDebitCMoins) {
-			BarrierePeage.getInstance().DebitCMoins();
-			m_info.DebitCMoins();
-			m_info.revalidate();
-			m_info.repaint();
+			debit = BarrierePeage.getInstance().getDebitC() - 1 ;
+			if (debit > 0) {
+				BarrierePeage.getInstance().setTempo(debit, TypeVehicule.PoidLourd);
+				BarrierePeage.getInstance().setDebitC(debit);
+				m_info.DebitCMoins();
+				m_info.revalidate();
+				m_info.repaint();
+			}
 		}
 		
 		else if(e.getSource() == boutonDebitMPlus) {
-			BarrierePeage.getInstance().DebitMPlus();
+			debit = BarrierePeage.getInstance().getDebitM() + 1 ;
+			BarrierePeage.getInstance().setTempo(debit, TypeVehicule.Moto);
+			BarrierePeage.getInstance().setDebitM(debit);
 			m_info.DebitMPlus();
 			m_info.revalidate();
 			m_info.repaint();
 		}
 		
 		else if(e.getSource() == boutonDebitMMoins) {
-			BarrierePeage.getInstance().DebitMMoins();
-			m_info.DebitMMoins();
-			m_info.revalidate();
-			m_info.repaint();
+			debit = BarrierePeage.getInstance().getDebitM() - 1 ;
+			if (debit > 0) {
+				BarrierePeage.getInstance().setTempo(debit, TypeVehicule.Moto);
+				BarrierePeage.getInstance().setDebitM(debit);
+				m_info.DebitMMoins();
+				m_info.revalidate();
+				m_info.repaint();
+			}
 		}
 	
-/*
-		else if(e.getSource() == boutonDefectueux) {
-			m_vehi.setDef();
-		}*/
+
+		else if(e.getSource() == boutonVDefectueux) {
+			BarrierePeage.getInstance().setDef(TypeVehicule.Voiture);
+		}
+		
+		else if(e.getSource() == boutonCDefectueux) {
+			BarrierePeage.getInstance().setDef(TypeVehicule.PoidLourd);
+		}
+		
+		else if(e.getSource() == boutonMDefectueux) {
+			BarrierePeage.getInstance().setDef(TypeVehicule.Moto);
+		}
 	}
 	
 }

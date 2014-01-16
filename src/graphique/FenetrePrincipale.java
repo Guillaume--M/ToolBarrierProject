@@ -38,13 +38,13 @@ public class FenetrePrincipale extends JFrame {
 
 	    
 	    JSplitPane splitAR = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, alarme, reglage);
-	    splitAR.setDividerLocation(longueur/4);
+	    splitAR.setDividerLocation(longueur/5);
 	    
 	    JSplitPane splitIA = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, info, splitAR);
-	    splitIA.setDividerLocation(longueur/4);
+	    splitIA.setDividerLocation(longueur/5);
 	    
 	    JSplitPane splitPI = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, peage, splitIA);
-	    splitPI.setDividerLocation(longueur/4);
+	    splitPI.setDividerLocation(longueur/5);
 	    
 	    JSplitPane splitRapport = new JSplitPane(JSplitPane.VERTICAL_SPLIT, splitPI, rapport);
 	    splitRapport.setDividerLocation(hauteur/2);
