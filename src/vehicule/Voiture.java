@@ -16,10 +16,11 @@ public class Voiture extends Vehicule {
 	 * @param defectuosite
 	 *            Etat defectueux de la Voiture
 	 */
-	public Voiture(FileAttente buffer, TypeVehicule type, boolean stat,int i) {
-		super(buffer, type, stat,i);
+	public Voiture(FileAttente buffer, TypeVehicule type, boolean stat,int i,Paiement p) {
+		super(buffer, type, stat, i , p );
 	}
 
 
 
 }
+

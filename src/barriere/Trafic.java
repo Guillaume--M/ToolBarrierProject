@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import types.TypeVehicule;
 import vehicule.ProducteurVehicule;
 
-public class Traffic {
+public class Trafic {
 
 	private ArrayList<ProducteurVehicule> traffic;
 	FileAttente buffer;
 	
 
-	public Traffic(int[] nbrVehiculeParMinute, FileAttente buffer) {
+	public Trafic(int[] nbrVehiculeParMinute, FileAttente buffer) {
 
 		traffic = new ArrayList<ProducteurVehicule>();
 		this.buffer = buffer;

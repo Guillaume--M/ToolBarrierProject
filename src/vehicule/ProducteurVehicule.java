@@ -13,6 +13,7 @@
  */
 package vehicule;
 
+import graphique.InterfaceInfo;
 import barriere.FileAttente;
 import barriere.GestionnaireAlarme;
 import barriere.Rapport;
@@ -25,6 +26,7 @@ public class ProducteurVehicule extends Thread {
 	int tempo;
 	FileAttente buffer;
 	TypeVehicule typeVehiculeCreer;
+	int nbDefectueux = 0;
 
 	public ProducteurVehicule(int nbrvehiculeparmin, TypeVehicule type,
 			FileAttente buffer) {
@@ -34,34 +36,60 @@ public class ProducteurVehicule extends Thread {
 
 	}
 
-	public Vehicule CreerVehicule() {
-		++i;
-		float r1 = (float) (Math.random() * 100);
-		boolean defectueux;
+	public Vehicule CreerVehicule(boolean def) {
 
-		if (r1 > 90) {
-			defectueux = true;
+		Vehicule v;
+		Paiement p = new Paiement(15,TypePaiement.CB);
+		if (!def) {
+			++i;
+			float r1 = (float) (Math.random() * 100);
+			boolean defectueux;
+
+			if (r1 > 90) {
+				defectueux = true;
+			} else {
+				defectueux = false;
+			} 
+			v= new Vehicule(buffer, typeVehiculeCreer, defectueux, i,p);
+
+			return v;
 		} else {
-			defectueux = false;
+			v = new Vehicule(buffer, typeVehiculeCreer, def, i,p);
+			return v;
 		}
-		Vehicule v = new Vehicule(buffer, typeVehiculeCreer, defectueux, i);
-
-		return v;
 	}
+
+	public void setDef() {
+		nbDefectueux++;
+	}
+
 
 	@Override
 	public void run() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		while (true) {
 			if (!buffer.isFull()) {
 				synchronized (buffer) {
-					Vehicule v = CreerVehicule();
-					Rapport.getInstance().ajouterLigne("Le vehicule("
-							+ typeVehiculeCreer.getName() + ") n "
-							+ v.getNumero() + " arrive en station");
+					Vehicule v;
+					if (nbDefectueux > 0) {
+						v = CreerVehicule(true);
+						nbDefectueux--;
+					} else
+						v = CreerVehicule(false);
+					Rapport.getInstance().ajouterLigne(
+							"Le vehicule(" + typeVehiculeCreer.getName()
+									+ ") n " + v.getNumero()
+									+ " arrive en station");
 					buffer.depose(v);
+
 				}
 			} else {
-				GestionnaireAlarme.ajouterAlarme(new Alarme(TypeAlarme.Bouchon,"Trop de véhicule"));
+				GestionnaireAlarme.ajouterAlarme(new Alarme(TypeAlarme.Bouchon,
+						"Trop de véhicule"));
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {

@@ -12,12 +12,13 @@ public class BarrierePeage {
 	private int nbrAuto;
 
 	private FileAttente file;
-	private Traffic traffic;
+	private Trafic trafic;
 	private ArrayList<Borne> listeBorne;
 
 	private int debit_V;
 	private int debit_C;
 	private int debit_M;
+	private int[] debit;
 
 	/**
 	 * Constructeur du peage
@@ -27,10 +28,11 @@ public class BarrierePeage {
 	 *            de taille 3 (0=Manuel,1=Tele,2=Auto)
 	 */
 	public BarrierePeage(int[] lengh, int nMaxAvantBouchon, int[] nbVoitCam) {
+		debit = nbVoitCam;
 		
 		file = new FileAttente(nMaxAvantBouchon);
 		
-		traffic = new Traffic(nbVoitCam, file);
+		trafic = new Trafic(nbVoitCam, file);
 		
 		debit_V = nbVoitCam[0];
 		debit_C = nbVoitCam[1];
@@ -81,7 +83,6 @@ public class BarrierePeage {
 		if(_instance == null)
 		{
 			_instance = new BarrierePeage(lengh, nMaxAvantBouchon, nbVoitCam);
-			System.out.println("bla");
 			return _instance;
 		}
 		else{
@@ -114,7 +115,7 @@ public class BarrierePeage {
 	
 	public void removeBorne(int numeroDeLaBorne) {
 		if (numeroDeLaBorne >= 0 && numeroDeLaBorne <= listeBorne.size())
-			listeBorne.remove(numeroDeLaBorne);
+		{}
 		else
 			System.err.println("IndexTrop Grand");
 	}
@@ -169,5 +170,30 @@ public class BarrierePeage {
 	public int getDebitM() {
 		return debit_M;
 	}
+	
+	public void DebitVPlus() {
+		debit[0]++;
+	}
+
+	public void DebitVMoins() {
+		debit[0]--;
+	}
+
+	public void DebitCPlus() {
+		debit[1]++;
+	}
+
+	public void DebitCMoins() {
+		debit[1]--;
+	}
+
+	public void DebitMPlus() {
+		debit[2]++;
+	}
+
+	public void DebitMMoins() {
+		debit[2]--;
+	}
+	
 
 }

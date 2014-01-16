@@ -16,8 +16,8 @@ public class PoidLourd extends Vehicule {
 	 *            Etat defectueux de la PoidLourd
 	 */
 	public PoidLourd(FileAttente buffer, TypeVehicule type, boolean stat,
-			int i) {
-		super(buffer, type, stat,i);
+			int i,Paiement p) {
+		super(buffer, type, stat,i,p);
 	}
 
 }

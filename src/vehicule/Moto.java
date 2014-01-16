@@ -16,7 +16,7 @@ public class Moto extends Vehicule {
 	 * @param defectuosite
 	 *            Etat defectueux de la moto
 	 */
-	public Moto(FileAttente buffer, TypeVehicule type, boolean stat, int i) {
-		super(buffer, type, stat,i);
+	public Moto(FileAttente buffer, TypeVehicule type, boolean stat, int i,Paiement p) {
+		super(buffer, type, stat,i, p);
 	}
 }

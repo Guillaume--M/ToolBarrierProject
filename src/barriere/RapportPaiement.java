@@ -9,14 +9,15 @@ import vehicule.*;
 
 public final class RapportPaiement {
 	private static RapportPaiement _instance = new RapportPaiement();
-	private int _paiment;
-	private int _compteurVehicule;
+	static Vector<Paiement> _paiement;
+	private static  int _compteurVehicule;
 	
 	
 	
 	private RapportPaiement(){
-		_paiment = 0;
+		_paiement = new Vector<Paiement>();
 		_compteurVehicule = 0;
+		
 	}
 	
 	public static RapportPaiement getInstance(){
@@ -27,21 +28,21 @@ public final class RapportPaiement {
 		return _compteurVehicule;
 	}
 	
-	public void enregisterInfos (int money){
-		_paiment += money ;
+	public static void enregisterInfos (Vehicule v){
+		_paiement.add(v.getPaiement());
 		_compteurVehicule +=1;
 	}
 	
 	public String getRapportPaiement(){
 		String message = "";
-/*		double total=0,cb=0,liquide=0,police=0,pompier=0,telepeage = 0;
-		int p;
+		float total=0,cb=0,liquide=0,gratuit=0,telepeage = 0;
+		Paiement p;
 		
-		Iterator<Payement> it = _paiment.iterator();
+		Iterator<Paiement> it = _paiement.iterator();
 		while(it.hasNext()){
 			p = it.next(); 
 			total += p.getSomme();
-			switch(p.getTypeDePayement()){
+			switch(p.getTypePaiement()){
 				case CB:
 					cb+=p.getSomme();
 					break;
@@ -51,21 +52,19 @@ public final class RapportPaiement {
 				case Monnaie:
 					liquide+=p.getSomme();
 					break;
-				case Gratuit_Pompier:
-					pompier+=p.getSomme();
-					break;
-				case Gratuit_Policier:
-					police+=p.getSomme();
+				case Gratuit:
+					gratuit+=p.getSomme();
 					break;
 				default:
 					break;
 			}
 			
-			message = "Rapport Payement :\n Total reçu :"+_paiment;
-			message += "Pompier :"+pompier+"\nPolicier :"+police+"\n";	
+			message = "Rapport Payement :\n Total reçu :"+total;
+			message += "\n CB :"+cb+"\n Telepayage :"+telepeage+"\n liquide :"+liquide;
+			message += "Vehicule privilégié (Pompier/Police) :"+gratuit;	
 			
 	
-		}*/
+		}
 		return message;
 	}
 }

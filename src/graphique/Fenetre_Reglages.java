@@ -96,7 +96,7 @@ public class Fenetre_Reglages extends javax.swing.JFrame {
 						Nb_bornes[2] = (Integer)Spinner_bornes_auto.getValue();
 						Debit_VCM[0] = (Integer)Spinner_debit_voiture.getValue();
 						Debit_VCM[1] = (Integer)Spinner_debit_camion.getValue();
-						Debit_VCM[1] = (Integer)Spinner_debit_M.getValue();
+						Debit_VCM[2] = (Integer)Spinner_debit_M.getValue();
 						
 						BarrierePeage.getInstance(Nb_bornes, 
 								(Integer)Spinner_taille_file.getValue(),

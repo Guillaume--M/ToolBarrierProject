@@ -20,7 +20,7 @@ import types.*;
 public class Vehicule extends Thread {
 	protected int numero;
 	protected boolean defectueux;
-
+	protected Paiement paiement;
 	protected FileAttente buffer;
 
 	protected ArrayList<TypePaiement> paiementPossede;
@@ -37,14 +37,15 @@ public class Vehicule extends Thread {
 	 *            le numero du vehicule
 	 */
 
-	public Vehicule(FileAttente file, TypeVehicule type, boolean sta, int i) {
+	public Vehicule(FileAttente file, TypeVehicule type, boolean sta, int i,Paiement p) {
 		numero = i;
 		defectueux = sta;
 		buffer = file;
-		paiementPossede = new ArrayList<>();
+		paiement = p;
 		typeVehicule = type;
 	}
 
+	
 	/**
 	 * Getter du numero
 	 * 
@@ -74,5 +75,8 @@ public class Vehicule extends Thread {
 	}
 	public TypeVehicule getCategorie(){
 		return typeVehicule;
+	}
+	public Paiement getPaiement(){
+		return paiement;
 	}
 }

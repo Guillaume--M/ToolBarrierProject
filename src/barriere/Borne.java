@@ -13,13 +13,11 @@
  */
 package barriere;
 
-
 import java.util.ArrayList;
 import types.*;
 import vehicule.*;
 
-public class Borne extends Thread
-{
+public class Borne extends Thread {
 	protected int tempo;
 	protected int numero;
 	protected boolean status;
@@ -85,6 +83,7 @@ public class Borne extends Thread
 	 */
 	public boolean getStatus() {
 		return status;
+
 	}
 
 	/**
@@ -106,42 +105,61 @@ public class Borne extends Thread
 		return false;
 	}
 
-	
 	@Override
 	public void run() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		Vehicule vehicule;
 		while (true) {
-			synchronized (buffer) {
-				vehicule = buffer.accepteVehicule();
-			}
-			if (null != vehicule) {
-				Rapport.getInstance().ajouterLigne(typeBorne.getName() + ": traite le vehicule n" + vehicule.getNumero());
-				try {
-					if(vehicule.getDefectuosite()){
-						GestionnaireAlarme.ajouterAlarme(new Alarme(TypeAlarme.Vehicule_Defectueux," "));
-						Thread.sleep(20000);
+
+			while (status) {
+
+				synchronized (buffer) {
+					vehicule = buffer.accepteVehicule();
+				}
+				if (null != vehicule) {
+					Rapport.getInstance().ajouterLigne(
+							typeBorne.getName() + ": traite le vehicule n"
+									+ vehicule.getNumero());
+					try {
+						if(vehicule.getDefectuosite()){
+							GestionnaireAlarme.ajouterAlarme(new Alarme(TypeAlarme.Vehicule_Defectueux," "));
+							Thread.sleep(20000);
+							}
+						else{
+							RapportPaiement.enregisterInfos(vehicule);
 						}
-					Thread.sleep(tempo);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+						Thread.sleep(tempo);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					Rapport.getInstance().ajouterLigne(
+							"Vehicule n " + vehicule.getNumero()
+									+ " : Paiement accepte.");
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				} else {
+					Rapport.getInstance().ajouterLigne(
+							"Borne " + typeBorne.getName() + " libre");
 				}
-				Rapport.getInstance().ajouterLigne("Vehicule n " + vehicule.getNumero()
-						+ " : Paiement accepte.");
 				try {
-					Thread.sleep(2000);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
-			else{
-				Rapport.getInstance().ajouterLigne("Borne " + typeBorne.getName() + " libre");
-				}
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+
 		}
 	}
-
 }

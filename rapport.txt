@@ -1,0 +1,208 @@
+Le vehicule(Voiture) n 1 arrive en station
+
+Le vehicule(Moto) n 1 arrive en station
+
+Le vehicule(PoidLourd) n 1 arrive en station
+
+Manuel: traite le vehicule n1
+
+Manuel: traite le vehicule n1
+
+Tele: traite le vehicule n1
+
+Borne Tele libre
+
+Borne Auto libre
+
+Borne Auto libre
+
+Le vehicule(Voiture) n 2 arrive en station
+
+Le vehicule(Moto) n 2 arrive en station
+
+Tele: traite le vehicule n2
+
+Auto: traite le vehicule n2
+
+Borne Auto libre
+
+Le vehicule(Voiture) n 3 arrive en station
+
+Auto: traite le vehicule n3
+
+Le vehicule(Moto) n 3 arrive en station
+
+Vehicule n 1 : Paiement accepte.
+
+Vehicule n 2 : Paiement accepte.
+
+Le vehicule(Voiture) n 4 arrive en station
+
+Le vehicule(Moto) n 4 arrive en station
+
+Tele: traite le vehicule n3
+
+Le vehicule(Voiture) n 5 arrive en station
+
+Le vehicule(Moto) n 5 arrive en station
+
+Tele: traite le vehicule n4
+
+Le vehicule(Voiture) n 6 arrive en station
+
+Le vehicule(Moto) n 6 arrive en station
+
+Vehicule n 3 : Paiement accepte.
+
+Vehicule n 3 : Paiement accepte.
+
+Le vehicule(Voiture) n 7 arrive en station
+
+Vehicule n 4 : Paiement accepte.
+
+Le vehicule(Moto) n 7 arrive en station
+
+Vehicule n 1 : Paiement accepte.
+
+Vehicule n 1 : Paiement accepte.
+
+Tele: traite le vehicule n4
+
+Le vehicule(Voiture) n 8 arrive en station
+
+Le vehicule(Moto) n 8 arrive en station
+
+Auto: traite le vehicule n5
+
+Tele: traite le vehicule n5
+
+Le vehicule(Voiture) n 9 arrive en station
+
+Le vehicule(Moto) n 9 arrive en station
+
+Manuel: traite le vehicule n6
+
+Manuel: traite le vehicule n6
+
+Vehicule n 4 : Paiement accepte.
+
+Le vehicule(Voiture) n 10 arrive en station
+
+Vehicule n 5 : Paiement accepte.
+
+Le vehicule(Moto) n 10 arrive en station
+
+Tele: traite le vehicule n7
+
+Le vehicule(Voiture) n 11 arrive en station
+
+Le vehicule(Moto) n 11 arrive en station
+
+Tele: traite le vehicule n7
+
+Le vehicule(Voiture) n 12 arrive en station
+
+Le vehicule(Moto) n 12 arrive en station
+
+Vehicule n 7 : Paiement accepte.
+
+Vehicule n 5 : Paiement accepte.
+
+Vehicule n 7 : Paiement accepte.
+
+Tele: traite le vehicule n8
+
+Auto: traite le vehicule n8
+
+Le vehicule(Voiture) n 13 arrive en station
+
+Tele: traite le vehicule n9
+
+Le vehicule(Moto) n 13 arrive en station
+
+Vehicule n 6 : Paiement accepte.
+
+Vehicule n 6 : Paiement accepte.
+
+Vehicule n 8 : Paiement accepte.
+
+Le vehicule(Voiture) n 14 arrive en station
+
+Vehicule n 2 : Paiement accepte.
+
+Manuel: traite le vehicule n9
+
+Manuel: traite le vehicule n10
+
+Tele: traite le vehicule n10
+
+Le vehicule(Moto) n 14 arrive en station
+
+Vehicule n 8 : Paiement accepte.
+
+Auto: traite le vehicule n11
+
+Le vehicule(Voiture) n 15 arrive en station
+
+Le vehicule(Moto) n 15 arrive en station
+
+Vehicule n 10 : Paiement accepte.
+
+Le vehicule(Voiture) n 16 arrive en station
+
+Auto: traite le vehicule n11
+
+Tele: traite le vehicule n12
+
+Le vehicule(Voiture) n 17 arrive en station
+
+Le vehicule(Moto) n 16 arrive en station
+
+Vehicule n 12 : Paiement accepte.
+
+Vehicule n 9 : Paiement accepte.
+
+Vehicule n 10 : Paiement accepte.
+
+Tele: traite le vehicule n12
+
+Le vehicule(Moto) n 17 arrive en station
+
+Vehicule n 11 : Paiement accepte.
+
+Manuel: traite le vehicule n13
+
+Manuel: traite le vehicule n13
+
+Vehicule n 12 : Paiement accepte.
+
+Auto: traite le vehicule n14
+
+Le vehicule(Voiture) n 18 arrive en station
+
+Le vehicule(Moto) n 18 arrive en station
+
+Tele: traite le vehicule n14
+
+Vehicule n 9 : Paiement accepte.
+
+Le vehicule(Voiture) n 19 arrive en station
+
+Le vehicule(Moto) n 19 arrive en station
+
+Vehicule n 14 : Paiement accepte.
+
+Tele: traite le vehicule n15
+
+Le vehicule(Moto) n 20 arrive en station
+
+Vehicule n 14 : Paiement accepte.
+
+Tele: traite le vehicule n15
+
+Le vehicule(Voiture) n 20 arrive en station
+
+Vehicule n 15 : Paiement accepte.
+
+
+
