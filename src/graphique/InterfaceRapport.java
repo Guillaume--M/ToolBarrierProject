@@ -1,16 +1,13 @@
 package graphique;
 
 import java.awt.BorderLayout;
-import java.awt.LayoutManager;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import barriere.Rapport;
@@ -23,7 +20,11 @@ import barriere.Rapport;
  */
 public class InterfaceRapport extends JPanel {
 
-	private JScrollPane panel = new JScrollPane(Rapport.getInstance()._jta);
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2901204432506806794L;
+	private JScrollPane panel = new JScrollPane(Rapport._jta);
 	private JButton bouton= new JButton("Imprimer");
 	private JLabel titre = new JLabel("Rapport en temps réél");
 

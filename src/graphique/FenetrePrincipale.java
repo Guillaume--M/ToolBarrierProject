@@ -1,18 +1,9 @@
 package graphique;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.util.ArrayList;
-
-import javax.swing.Box;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.JTextArea;
 
-import barriere.BarrierePeage;
 
 /**
  * 
@@ -23,6 +14,11 @@ import barriere.BarrierePeage;
 public class FenetrePrincipale extends JFrame {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6280880815838729185L;
+
 	public FenetrePrincipale(int longueur, int hauteur) {
 		
 		InterfaceInfo info = new InterfaceInfo();

@@ -2,12 +2,10 @@ package graphique;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-
 import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import barriere.BarrierePeage;
@@ -21,6 +19,10 @@ import barriere.BarrierePeage;
  */
 public class InterfaceInfo extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -480392434323794966L;
 	private JLabel titre = new JLabel("Informations");
 	private Box conteneurInfos = Box.createVerticalBox();
 	private JScrollPane scrollPane = new JScrollPane(conteneurInfos);

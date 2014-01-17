@@ -1,17 +1,11 @@
 package graphique;
 
 import java.awt.BorderLayout;
-import java.util.ArrayList;
-
-import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-
 import barriere.GestionnaireAlarme;
-import barriere.Rapport;
 
 /**
  * 
@@ -21,6 +15,10 @@ import barriere.Rapport;
  */
 public class InterfaceAlarme extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2882728716100433691L;
 	private JScrollPane panel = new JScrollPane(GestionnaireAlarme._jta);
 	private JLabel titre = new JLabel("Alarmes");
 	

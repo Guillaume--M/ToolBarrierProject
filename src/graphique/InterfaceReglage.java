@@ -4,23 +4,16 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
-import javax.swing.JTextPane;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
-
 import types.TypeVehicule;
-import vehicule.ProducteurVehicule;
-
 import barriere.BarrierePeage;
 import barriere.FileAttente;
-import vehicule.ProducteurVehicule;
 
 
 
@@ -38,7 +31,10 @@ import vehicule.ProducteurVehicule;
 */
 public class InterfaceReglage extends JPanel implements ActionListener {
 
-	private JScrollPane scrollPanel = new JScrollPane();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8970772166561881901L;
 	private JLabel titre = new JLabel("Reglages");
 	
 	private InterfacePeage m_peage; 
@@ -61,8 +57,6 @@ public class InterfaceReglage extends JPanel implements ActionListener {
 	
 	private SpinnerNumberModel model;
 	private JSpinner spinnerSuppr;
-	private int debit;
-	
 	
 	public InterfaceReglage(InterfacePeage peage, InterfaceInfo info) {
 		m_peage = peage;

@@ -14,7 +14,6 @@
 package barriere;
 
 import javax.swing.SwingUtilities;
-import graphique.FenetrePrincipale;
 import graphique.Fenetre_Reglages;
 
 public class Main

@@ -22,6 +22,10 @@ import javax.swing.SwingUtilities;
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
 public class Fenetre_accueil extends javax.swing.JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7175933937158328190L;
 	private JButton Reglages;
 	private JButton Demarrer;
 	private JTextPane Bienvenue;

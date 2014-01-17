@@ -20,6 +20,13 @@ import barriere.BarrierePeage;
  */
 public class BoutonPeage extends JButton implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6898619778166763800L;
+	/**
+	 * 
+	 */
 	private ArrayList<ImageIcon> m_image = new ArrayList<ImageIcon>();
 	private int m_numeroImage, m_numeroBorne, m_typeBouton;
 	

@@ -2,8 +2,6 @@ package barriere;
 
 import java.util.Iterator;
 import java.util.Vector;
-
-import types.TypeVehicule;
 import vehicule.*;
 
 

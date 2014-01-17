@@ -1,12 +1,7 @@
 package graphique;
-
-import java.awt.Insets;
 import java.util.ArrayList;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -17,6 +12,10 @@ import javax.swing.JLabel;
  */
 public class Peage extends Box {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8806338451751124220L;
 	private JLabel m_numeroLabel;
 	
 	public Peage(int etat, int vehicule, int paiement, int numeroBorne){

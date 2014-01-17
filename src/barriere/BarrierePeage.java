@@ -2,7 +2,6 @@ package barriere;
 
 import java.util.ArrayList;
 import types.*;
-import vehicule.ProducteurVehicule;
 
 public class BarrierePeage {
 
@@ -19,7 +18,6 @@ public class BarrierePeage {
 	private int debit_V;
 	private int debit_C;
 	private int debit_M;
-	private int[] debit;
 
 	/**
 	 * Constructeur du peage
@@ -29,7 +27,7 @@ public class BarrierePeage {
 	 *            de taille 3 (0=Manuel,1=Tele,2=Auto)
 	 */
 	public BarrierePeage(int[] lengh, int nMaxAvantBouchon, int[] nbVoitCam) {
-		debit = nbVoitCam;
+
 
 		file = new FileAttente(nMaxAvantBouchon);
 

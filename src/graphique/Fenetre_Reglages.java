@@ -1,19 +1,14 @@
 package graphique;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JSpinner;
-import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.LayoutStyle;
-import javax.swing.SpinnerListModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.WindowConstants;
-import javax.swing.SwingUtilities;
 
 import barriere.BarrierePeage;
 
@@ -31,6 +26,10 @@ import barriere.BarrierePeage;
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
 public class Fenetre_Reglages extends javax.swing.JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6320612613831002480L;
 	private JButton Annuler;
 	private JButton Valider;
 	private JSpinner Spinner_debit_voiture;
@@ -51,7 +50,6 @@ public class Fenetre_Reglages extends javax.swing.JFrame {
 
 	private int Nb_bornes[] = { 1 , 1 , 1 };
 	private int Debit_VCM[] = {1, 1, 1};
-	private int tempo = 1000;
 	/**
 	* Auto-generated main method to display this JFrame
 	*/

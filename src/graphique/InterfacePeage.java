@@ -21,6 +21,10 @@ import barriere.BarrierePeage;
  */
 public class InterfacePeage extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3305870305389766912L;
 	private JLabel titre = new JLabel("Liste des bornes");
 	private Box conteneurBornes = Box.createVerticalBox();
 	private JScrollPane scrollPane = new JScrollPane(conteneurBornes);

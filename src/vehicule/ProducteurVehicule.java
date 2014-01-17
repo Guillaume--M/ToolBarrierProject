@@ -12,12 +12,9 @@
  * 
  */
 package vehicule;
-
-import graphique.InterfaceInfo;
 import barriere.FileAttente;
 import barriere.GestionnaireAlarme;
 import barriere.Rapport;
-import vehicule.*;
 import types.*;
 import barriere.Alarme;
 
